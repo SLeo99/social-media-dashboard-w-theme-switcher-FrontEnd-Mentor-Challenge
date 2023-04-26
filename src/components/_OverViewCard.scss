@@ -1,0 +1,119 @@
+@import '../variables';
+
+.overview {
+  display: flex;
+  flex-direction: column;
+  width: calc(100% - 3rem);
+  margin: 0 auto;
+  gap: 1rem;
+  margin-top: 1.25rem;
+  & > h2 {
+    line-height: 28px;
+    margin-bottom: 12px;
+    color: $WhiteText;
+  }
+  &__grid {
+    display: grid;
+    gap: 1rem;
+  }
+  &__card {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 1.26rem 2rem 1.26rem 1.5rem;
+    gap: 1.25rem;
+    border-radius: .3rem;
+    background-color: $DarkDesaturatedBlueCardBG;
+    transition: background-color .3s ease-out;
+    & > div {
+      display: flex;
+      justify-content: space-between;
+      &:nth-child(1) {
+        align-items: center;
+        margin-top: 6px;
+        font-size: $fSizeOverviewCardHeadings;
+        font-weight: $ffwInter700;
+        color: $DesaturatedBlueText;
+      }
+      &:nth-child(2) {
+        align-items: flex-end;
+        & > span {
+          font-size: 2rem;
+          font-weight: $ffwInter700;
+          color: $WhiteText;
+        }
+        & > div {
+          display: flex;
+          align-items: center;
+          gap: .25rem;
+          & > span {
+            font-size: .75rem;
+            font-weight: $ffwInter700;
+            line-height: 24px;
+          }
+        }
+      }
+    }
+    &--positive {
+      color: $LimeGreen;
+    }
+    &--negative {
+      color: $BrightRed;
+    }
+    &:hover {
+      cursor: pointer;
+      background-color: $DarkDesaturatedBlueCardBGHover;
+      transition: background-color .2s ease-in-out;
+    }
+  }
+  &--light {
+    & > h2 {
+      color: $DarkGrayishBlueText;
+    }
+  }
+  &__card--light {
+    background-color: $WhiteBG;
+    transition: background-color .3s ease-out;
+    & > div {
+      &:nth-child(1){
+        color: $DarkGrayishBlueText;
+        transition: color .3s ease-out;
+      }
+      &:nth-child(2) > span {
+        color: $VeryDarkBlueText;
+        transition: color .3s ease-out;
+      }
+    }
+    &:hover {
+      background-color: $LightGrayishBlueCardBGHover;
+      transition: background-color .3s ease-out;
+    }
+  }
+}
+
+@media screen and (min-width: 768px){
+  .overview {
+    width: calc(100% - 10rem);
+    &__grid {
+      grid-auto-rows: 1fr;
+      grid-auto-columns: 1fr;
+      gap: 1.75rem;
+      grid-template-areas: 
+      'grid1 grid2' 
+      'grid3 grid4'
+      'grid5 grid6' 
+      'grid7 grid8';
+    }
+  }
+}
+
+@media screen and (min-width: 1240px){
+  .overview {
+    width: calc(100% - 20.75rem);
+    &__grid {
+      grid-template-areas: 
+      'grid1 grid2 grid3 grid4'
+      'grid5 grid6 grid7 grid8';
+    }
+  }
+}

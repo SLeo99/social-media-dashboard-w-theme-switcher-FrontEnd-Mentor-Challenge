@@ -1,0 +1,146 @@
+@import '../variables';
+
+.cards-container {
+  width: calc(100% - 3rem);
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 1.4rem;
+  margin-top: -4rem;
+}
+
+.card {
+  display: grid;
+  place-items: center;
+  min-height: 13.6rem;
+  padding-block: 1rem;
+  border-radius: .3rem;
+  background-color: $DarkDesaturatedBlueCardBG;
+  overflow: hidden;
+  position: relative;
+  transition: background-color .3s ease-out;
+  &__user {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: .5rem;
+    margin-top: 6px;
+    & > p {
+    font-size: .75rem;
+    font-weight: $ffwInter700;
+    color: $DesaturatedBlueText;
+    }
+  }
+  &__info {
+    display: grid;
+    place-items: center;
+    & > span:nth-child(1) {
+      font-size: 3.5rem;
+      font-weight: $ffwInter700;
+      letter-spacing: -2px;
+      color: $WhiteText;
+      transition: color .3s ease-out;
+
+    }
+    & > span:nth-child(2) {
+      text-transform: uppercase;
+      font-size: .8rem;
+      letter-spacing: 5px;
+      font-weight: $ffwInter400;
+      color: $DesaturatedBlueText;
+      transition: color .3s ease-out;
+    }
+  }
+  &__chart {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: .25rem;
+    margin-top: .25rem;
+    & > span {
+      font-size: .75rem;
+      font-weight: $ffwInter700;
+      color: $WhiteText;
+      opacity: .75;
+    }
+    &--positive > span {
+      color: $LimeGreen;
+    }
+    &--negative > span {
+      color: $BrightRed;
+    }
+  }
+  &::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    height: 4px;
+    width: 100%;
+  }
+  &--facebook{
+    &::after{
+      background: $Facebook;
+    }
+  }
+  &--twitter{
+    &::after{
+    background: $Twitter;
+    }
+  }
+  &--instagram{
+    &::after{
+    background: $Instagram;
+    }
+  }
+  &--youtube{
+    &::after{
+    background: $YouTube;
+    }
+  }
+  &:hover {
+    cursor: pointer;
+    background-color: $DarkDesaturatedBlueCardBGHover;
+    transition: background-color .2s ease-in-out;
+  }
+  &--light {
+    background-color: $LightGrayishBlueCardBG;
+    transition: background-color .3s ease-out;
+    &:hover {
+      background-color: $LightGrayishBlueCardBGHover;
+      transition: background-color .2s ease-out;
+    }
+  }
+  &__user--light {
+    & > p {
+      color: $DarkGrayishBlueText;
+      transition: color .3s ease-out;
+    }
+  }
+  &__info--light {
+    & > span:nth-child(1) {
+      color: $VeryDarkBlueText;
+      transition: color .3s ease-out;
+    }
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .cards-container {
+    width: calc(100% - 10rem);
+    display: grid;
+    grid-template-areas: 
+    'grid1 grid2' 
+    'grid3 grid4';
+    grid-auto-columns: 1fr;
+    grid-auto-rows: 1fr;
+    gap: 1.75rem;
+  }
+}
+
+@media screen and (min-width: 1240px) {
+  .cards-container {
+    width: calc(100% - 20.75rem);
+    grid-template-areas: 
+    'grid1 grid2 grid3 grid4';
+  }
+}

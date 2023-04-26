@@ -1,0 +1,135 @@
+@import '../variables';
+
+.header {
+  padding-top: 7px; 
+  background-color: $VeryDarkBlueTopBGPattern;
+  padding-bottom: 4rem;
+  border-radius: 0 0 1rem 1rem;
+  transition: background-color .3s ease-out;
+  &__container {
+    display: flex;
+    flex-direction: column;
+    width: calc(100% - 3rem);
+    margin: 0 auto;
+    background-color: transparent;
+  }
+  &__title{
+    display: grid;
+    padding-block: 1.6rem;
+    position: relative;
+    & > p {
+      color: $WhiteText;
+      font-weight: 700;
+      font-size: 1.5rem;
+      transition: color .3s ease-out;
+    }
+    & > span {
+      font-size: $fSizeOverviewCardHeadings;
+      font-weight: 700;
+      letter-spacing: 0px;
+      margin-left: 2px;
+      color: $DesaturatedBlueText;
+      transition: color .3s ease-out;
+    }
+    &::after {
+      content: '';
+      position: absolute;
+      width: 100%;
+      height: 1px;
+      background-color: $DesaturatedBlueText;
+      bottom: 0;
+      opacity: .25;
+    }
+  }
+  &--light {
+    background-color: $VeryPaleBlueTopBGPattern;
+    transition: background-color .3s ease-out;
+    & > div > div > p {
+        color: $VeryDarkBlueText;
+    }
+  }
+}
+
+.toggle {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-block: 1rem;
+  & > span {
+    font-size: $fSizeOverviewCardHeadings;
+    font-weight: 700;
+    color: $DesaturatedBlueText;
+  }
+  &__btn {
+    min-height: 24px;
+    min-width: 48px;
+    background: $ToggleDark;
+    border-radius: 2rem;
+    position: relative;
+    cursor: pointer;
+    &::after{
+      content: '';
+      position: absolute;
+      min-width: 18px;
+      height: 18px;
+      border-radius: 50%;
+      top: calc(0% + .2rem);
+      transform: translateX(.2rem);
+      background-color: $DarkDesaturatedBlueCardBG;
+      transition: .25s ease-in-out;
+    }
+    &--active {
+      background: $Toggle;
+      &::after {
+        top: calc(0% + .2rem);
+        transform: translateX(1.7rem);
+        transition: .25s ease-in;
+        background-color: $WhiteBG;
+      }
+    }
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .header{
+    &__container {
+      width: calc(100% - 10rem);
+    }
+    &__title {
+      width: 100%;
+    }
+    &__toggle {
+      min-width: 100% !important;
+      margin: 0 unset;
+      margin-inline: 0 !important;
+    }
+  }
+}
+
+@media screen and (min-width: 1240px){
+  .header {
+    &__container {
+      flex-direction: row;
+      width: calc(100% - 20.75rem);
+      padding-bottom: 1.2rem;
+    }
+    &__title {
+      padding-block: 0;
+      & > p {
+        color: $WhiteText;
+        font-weight: 700;
+        font-size: 1.75rem;
+      }
+      &::after {
+        display: none;
+      }
+    }
+  }
+  .toggle {
+    flex-basis: 100%;
+    justify-content: unset;
+    justify-content: flex-end;
+    gap: .75rem;
+    padding-block: 0;
+  }
+}

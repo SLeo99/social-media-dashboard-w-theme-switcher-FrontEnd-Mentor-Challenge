@@ -1,0 +1,18 @@
+@import './variables';
+
+.App {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin: 0 auto;
+  min-height: 100vh;
+  gap: 1.5rem;
+  background-color: $VeryDarkBlueBG;
+  padding-bottom: 2.75rem;
+  transition: background-color .3s ease-out;
+  &--light {
+    background-color: $WhiteBG;
+    transition: background-color .3s ease-out;
+
+  }
+}
